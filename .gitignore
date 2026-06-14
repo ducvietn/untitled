@@ -1,0 +1,58 @@
+# ========================
+# Java / Spring Boot
+# ========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.bak
+release.properties
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.vscode/
+
+# Eclipse
+bin/
+.metadata/
+.gradle/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ========================
+# Credentials & Secrets — NEVER COMMIT
+# ========================
+.env
+.env.*
+*.env
+application-prod.yml
+application-prod.properties
+application-local.yml
+application-local.properties
+
+# ========================
+# React / Vite Frontend
+# ========================
+frontend/node_modules/
+frontend/.env
+frontend/.env.production
+frontend/dist/
+frontend/build/
+frontend/.vite/
