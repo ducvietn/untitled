@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionPhase;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.util.List;
 
@@ -53,8 +55,7 @@ public class NotificationEventListener {
      * Fires when a task's progress reaches 100%.
      * Notifies the group leader so they can review and approve the submission.
      */
-    @org.springframework.transaction.event.TransactionEventListener(
-            phase = org.springframework.transaction.event.TransactionPhase.AFTER_COMMIT)
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
     public void onTaskCompleted(TaskProgressUpdatedEvent event) {
         if (event.getNewProgress() != 100) return;
 

@@ -60,7 +60,7 @@ import java.util.List;
  * Used in post-authorisation for read access.
  */
 @Configuration
-@EnableMethodSecurity(prePostEnabled = true, postProtectionEnabled = true)
+@EnableMethodSecurity(prePostEnabled = true)
 public class MethodSecurityConfig {
 
     /**

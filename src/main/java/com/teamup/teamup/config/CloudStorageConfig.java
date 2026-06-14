@@ -1,13 +1,13 @@
 package com.teamup.teamup.config;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.Config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -49,12 +49,11 @@ public class CloudStorageConfig {
             return null;
         }
 
-        Config config = Config.builder()
-            .cloudName(cloudName)
-            .apiKey(apiKey)
-            .apiSecret(apiSecret)
-            .secure(true)   // always use HTTPS
-            .build();
+        Map<String, String> config = new HashMap<>();
+        config.put("cloud_name", cloudName);
+        config.put("api_key", apiKey);
+        config.put("api_secret", apiSecret);
+        config.put("secure", "true");
 
         log.info("Cloudinary configured for cloud: {}", cloudName);
         return new Cloudinary(config);
